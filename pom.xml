@@ -7,23 +7,79 @@
     <groupId>gr01</groupId>
     <artifactId>art01</artifactId>
     <version>1.0-SNAPSHOT</version>
+	<packaging>jar</packaging>
+	<name>Water Taxi</name>
+	<description>Demo project for Spring Boot</description>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+		<java.version>1.7</java.version>
+	</properties>
+
+	<!--Это ссылка на родительский POM. Т.о. автоматически подгружаются необходимые  dependencies.-->
+	<!--Его может и не быть, вместо него - кастомный родительский POM с набором dependencies для конкретного проекта.-->
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>1.5.7.RELEASE</version>
+		<relativePath/> <!-- lookup parent from repository -->
+	</parent>
 
     <dependencies>
+
+		<!--Отвечает за поиск класса, который является приложением. Запуск приложения. Начальное конфигурирование.-->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter</artifactId>
+		</dependency>
+
+		<!--Определяет инструменты для разработчика (может пригодиться в дальнейшем)-->
+		<!--Например, при запуске приложения может определить, запушено ли на продакшн сервере или запушено на отладке.-->
+		<!--<dependency>-->
+			<!--<groupId>org.springframework.boot</groupId>-->
+			<!--<artifactId>spring-boot-devtools</artifactId>-->
+		<!--</dependency>-->
+
+		<!--Авоматически созданная зависимость (необязательная, но оставил)-->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+
+		<!--Если надо будет Веб-->
+		<!--<dependency>-->
+			<!--<groupId>org.springframework.boot</groupId>-->
+			<!--<artifactId>spring-boot-starter-web</artifactId>-->
+		<!--</dependency>-->
+
+
+		<!--Хибер (нужно уточнить версию, чтобы была совместима с версией спринг бута-->
         <dependency>
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-core</artifactId>
             <version>5.2.4.Final</version>
         </dependency>
 
-    <dependency>
-        <groupId>postgresql</groupId>
-        <artifactId>postgresql</artifactId>
-        <version>9.1-901.jdbc4</version>
-    </dependency>
+		<!--БД postgres ()-->
+		<dependency>
+			<groupId>postgresql</groupId>
+			<artifactId>postgresql</artifactId>
+			<version>9.1-901.jdbc4</version>
+		</dependency>
     </dependencies>
 
     <build>
         <plugins>
+
+			<!--Спринг бут-->
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+
+			<!-- Мавен -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
@@ -33,6 +89,7 @@
                 </configuration>
             </plugin>
 
+			<!-- Мавен -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-war-plugin</artifactId>
