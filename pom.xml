@@ -37,8 +37,8 @@
 		<!--Определяет инструменты для разработчика (может пригодиться в дальнейшем)-->
 		<!--Например, при запуске приложения может определить, запушено ли на продакшн сервере или запушено на отладке.-->
 		<!--<dependency>-->
-			<!--<groupId>org.springframework.boot</groupId>-->
-			<!--<artifactId>spring-boot-devtools</artifactId>-->
+			<!--<groupId>org.springframewappboot</groupId>-->
+			<!--<artifactId>sprappboot-devtools</artifactId>-->
 		<!--</dependency>-->
 
 		<!--Авоматически созданная зависимость (необязательная, но оставил)-->
@@ -50,8 +50,8 @@
 
 		<!--Если надо будет Веб-->
 		<!--<dependency>-->
-			<!--<groupId>org.springframework.boot</groupId>-->
-			<!--<artifactId>spring-boot-starter-web</artifactId>-->
+			<!--<groupId>org.springframewappboot</groupId>-->
+			<!--<artifactId>sprappboot-starter-web</artifactId>-->
 		<!--</dependency>-->
 
 
@@ -68,7 +68,15 @@
 			<artifactId>postgresql</artifactId>
 			<version>9.1-901.jdbc4</version>
 		</dependency>
-    </dependencies>
+
+		<!--CrudRepository-->
+		<dependency>
+			<groupId>org.springframework.data</groupId>
+			<artifactId>spring-data-commons</artifactId>
+			<version>1.13.7.RELEASE</version>
+		</dependency>
+
+	</dependencies>
 
     <build>
         <plugins>
